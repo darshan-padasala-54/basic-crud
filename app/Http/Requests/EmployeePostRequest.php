@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Auth;
 
-class EmiHistoryPostRequest extends FormRequest
+
+class EmployeePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,8 @@ class EmiHistoryPostRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
+        //return Auth::check();
     }
 
     /**
@@ -25,9 +26,9 @@ class EmiHistoryPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'principal_amount'=>'required|integer|min:100',
-            'rate_of_interest'=>'required|numeric|min:1|max:100',
-            'durations'=>'required|integer|min:1',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'company_id'=>'required',
         ];
     }
 }
